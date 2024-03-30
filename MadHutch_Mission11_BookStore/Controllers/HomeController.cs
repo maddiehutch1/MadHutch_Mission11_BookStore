@@ -15,7 +15,7 @@ namespace MadHutch_Mission11_BookStore.Controllers
 
         public IActionResult Index(int pageNum)
         {
-            int pageSize = 10;
+            int pageSize = 5;
             var thingy = new BooksListViewModel
             {
                 Books = _bookRep.Books
