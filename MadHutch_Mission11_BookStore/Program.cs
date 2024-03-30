@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// connects to sqlite database
 builder.Services.AddDbContext<BookstoreContext>(options =>
 {
     options.UseSqlite(builder.Configuration["ConnectionStrings:BookConnection"]);
@@ -30,6 +31,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// cool routing that connects to the pagination and shortens the url based on the page/view number
 app.MapControllerRoute("pagination", "Books/{pageNum}", new {Controller="Home", action="Index"});
 
 app.MapDefaultControllerRoute();

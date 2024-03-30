@@ -6,9 +6,11 @@
 
 <h1 class="p-2">Welcome to your Online Bookstore</h1>
    
+@* use partial view to connect to the BookSummary.cshtml, running through records in a for loop *@
 @foreach (Book b in Model.Books)
 { 
     <partial name="BookSummary" model="b"/>
 }
 
+@* connects to pagination info taghelper *@
 <div page-model="@Model.PaginationInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

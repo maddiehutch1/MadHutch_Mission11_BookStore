@@ -3,9 +3,10 @@
 *@
 @{
 }
-
+@* pulls in model from Book.cs *@
 @model Book
 
+@* indirectly connects with the for loop in the Index.cshtml page to display the values of every record in database *@
 <div class="card m-2 p-1">
     <h3 class="p-3">
         @Model.Title

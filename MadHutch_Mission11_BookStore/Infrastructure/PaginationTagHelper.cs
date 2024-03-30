@@ -12,6 +12,7 @@ namespace MadHutch_Mission11_BookStore.Infrastructure
     {
         private IUrlHelperFactory urlHelperFactory;
         
+        // fancy "homemade" taghelper that is used to help with the pagination
         public PaginationTagHelper (IUrlHelperFactory temp)
         {
             urlHelperFactory = temp;
@@ -23,11 +24,13 @@ namespace MadHutch_Mission11_BookStore.Infrastructure
         public string? PageAction { get; set; }
         public PaginationInfo PageModel { get; set; }
 
+        // use these properties to help determine the css/style of the pagination buttons when clicked
         public bool PageClassesEnabled { get; set; } = false;
         public string PageClass { get; set; } = String.Empty;
         public string PageClassNormal { get; set; } = String.Empty;
         public string PageClassSelected { get; set; } = String.Empty;
        
+        // this is the info that determines how the tag helper works based on key words that are called
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             if (ViewContext != null && PageModel != null) 
